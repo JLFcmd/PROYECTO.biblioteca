@@ -3,11 +3,11 @@
 MANEJO DE FICHEROS CON JAVA: Hecho por Miguel Ángel Milena Ropero y Javier Gómez Priego
 
 
-# Introducción
+# 🔰Introducción
 
 Este repositorio alberga el proyecto final de la práctica evaluable de **ACCESO A DATOS**, enfocado en el desarrollo de una aplicación en Java para gestionar información de una biblioteca. El objetivo principal es manipular libros, autores y préstamos, haciendo uso de diversos tipos de ficheros como binarios, de texto, objetos y XML. 
 
-# Análisis de proyecto
+# 🔰Análisis de proyecto
 
 1.  **Gestión de Libros y Autores:**
     
