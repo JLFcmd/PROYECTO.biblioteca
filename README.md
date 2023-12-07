@@ -1,5 +1,3 @@
-# PROYECTO.biblioteca
-Este es el repositorio del proyecto final de ACCESO A DATOS de la práctica evaluable de manejo de ficheros en java
 # PROYECTO BIBLIOTECA
 
 MANEJO DE FICHEROS CON JAVA: Hecho por Miguel Ángel Milena Ropero y Javier Gómez Priego
@@ -9,7 +7,7 @@ MANEJO DE FICHEROS CON JAVA: Hecho por Miguel Ángel Milena Ropero y Javier Góm
 
 Este repositorio alberga el proyecto final de la práctica evaluable de **ACCESO A DATOS**, enfocado en el desarrollo de una aplicación en Java para gestionar información de una biblioteca. El objetivo principal es manipular libros, autores y préstamos, haciendo uso de diversos tipos de ficheros como binarios, de texto, objetos y XML. 
 
-# Estructura del proyecto
+# Análisis de proyecto
 
 1.  **Gestión de Libros y Autores:**
     
@@ -26,8 +24,49 @@ Este repositorio alberga el proyecto final de la práctica evaluable de **ACCESO
     -   Uso de ficheros de texto para registrar préstamos y devoluciones.
     -   Manejo de objetos binarios para copias de seguridad.
     -   Utilización de ficheros XML para exportar e importar datos (usando DOM).
+# Estructura del proyecto
 
 ## Clases
+
+### Clase `Libro`:
+#### Atributos:
+
+-   `id`: ID único del libro.
+-   `titulo`: Título del libro.
+-   `autor`: Referencia al autor del libro (puede ser un objeto de la clase `Autor`).
+-   `añoPublicacion`: Año de publicación del libro.
+-   `genero`: Género del libro.
+
+#### Funcionalidades:
+
+1.  **Creación de Libro:**
+    
+    -   Constructor que toma los datos necesarios para crear un nuevo libro en binario.
+2.  **Gestión de Información del Libro:**
+    
+    -   Métodos para acceder, mostrar, modificar y eliminar los atributos del libro, como el título, autor, año de publicación y género (en binario).
+
+
+### Clase `Autor`:
+
+#### Atributos:
+
+-   `id`: Identificador único del autor.
+-   `nombre`: Nombre del autor.
+-   `nacionalidad`: País de origen del autor.
+-   `añoNacimiento`: Año de nacimiento del autor.
+
+#### Funcionalidades:
+
+1.  **Creación de Autor:**
+    
+    -   Constructor que recibe los datos del autor para crear una nueva instancia de la clase en binario.
+2.  **Gestión de Información del Autor:**
+    
+    -   Métodos para acceder y modificar los atributos del autor, como el nombre, nacionalidad y año de nacimiento. (en binario)
+
+
+
 
 ### Clase `Prestamo`:
 #### Atributos:
@@ -39,54 +78,15 @@ Este repositorio alberga el proyecto final de la práctica evaluable de **ACCESO
 #### Funcionalidades:
 1.  **Registro de Préstamo:**
     
-    -   Método para registrar un nuevo préstamo, tomando como entrada el ID del libro, el nombre del usuario y las fechas pertinentes.
-    -   Se encarga de almacenar estos datos para el seguimiento de los préstamos activos.
-2.  **Registro de Devolución:**
+    -   Método para registrar un nuevo préstamo.
+    -   Método para llevar un control de las devoluciones.
     
-    -   Método para registrar la devolución de un libro, identificando el libro devuelto por su ID.
-    -   Actualiza la información del préstamo correspondiente y registra la fecha de devolución.
-3.  **Consulta de Información de Préstamo:**
-    
-    -   Métodos para acceder a los detalles de un préstamo específico, como el libro prestado, el usuario, las fechas de préstamo y devolución.
 
-### Clase `Autor`:
+2.  **Muestra de prestamos**
+	 -   Se encarga de almacenar estos datos para el seguimiento de los préstamos activos.
+	 -   Se encarga de almacenar estos datos para el seguimiento de las devoluciones pendientes.
 
-#### Atributos:
 
--   `id`: Identificador único del autor.
--   `nombre`: Nombre del autor.
--   `nacionalidad`: País de origen del autor.
--   `anioNacimiento`: Año de nacimiento del autor.
-
-#### Funcionalidades:
-
-1.  **Creación de Autor:**
-    
-    -   Constructor que recibe los datos del autor para crear una nueva instancia de la clase.
-2.  **Gestión de Información del Autor:**
-    
-    -   Métodos para acceder y modificar los atributos del autor, como el nombre, nacionalidad y año de nacimiento.
-
-### Clase `Libro`:
-#### Atributos:
-
--   `id`: ID único del libro.
--   `titulo`: Título del libro.
--   `autor`: Referencia al autor del libro (puede ser un objeto de la clase `Autor`).
--   `anioPublicacion`: Año de publicación del libro.
--   `genero`: Género del libro.
-
-#### Funcionalidades:
-
-1.  **Creación de Libro:**
-    
-    -   Constructor que toma los datos necesarios para crear un nuevo libro.
-2.  **Gestión de Información del Libro:**
-    
-    -   Métodos para acceder y modificar los atributos del libro, como el título, autor, año de publicación y género.
-3.  **Relación con Autor:**
-    
-    -   Métodos para establecer y obtener el autor del libro, permitiendo la asociación con un objeto de la clase `Autor`.
 
 ### FUNCIONALIDAD DE GESTORFICHEROS.JAVA:
 El archivo GestorFicheros.java es un componente importante en el sistema de gestión de nuestra biblioteca, diseñado para facilitar operaciones básicas sobre los datos de los libros, autores y prestamos. 
@@ -112,8 +112,9 @@ Este módulo ofrece una gama completa de funcionalidades que permiten manejar de
 -   **Consistencia y Precisión:** Garantiza la coherencia y precisión de los datos almacenados, facilitando una gestión robusta y fiable de la información.
 -   **Interfaz Intuitiva:** Proporciona métodos claros y estructurados para interactuar con la información, asegurando una manipulación sencilla y eficiente de los registros.
 -   **Portabilidad y Compatibilidad:** La capacidad de importar y exportar datos en formato XML ofrece una solución flexible y compatible con diferentes entornos de almacenamiento y transferencia de información.
+-    **Accesibilidad a los datos:** La posibilidad de acceder a los datos introducidos de forma inmediata.
+-    **Uso de rutas relativas:** La misma carpeta del proyecto es la que va a almacenar todos los ficheros creados tanto en binario, texto y XML a los que se podrá acceder fácilmente siempre que se quiera.
 
-# Informe básico
 
 ## Decisiones de diseño
 ### Requisitos Funcionales y No Funcionales:
@@ -136,12 +137,15 @@ Este módulo ofrece una gama completa de funcionalidades que permiten manejar de
     -   Considerar la facilidad de uso al diseñar la interfaz de línea de comandos (CLI) para garantizar que sea intuitiva y amigable para el usuario.
 
 ## Dificultades encontradas y soluciones
-Nos enfrentamos a diversas dificultades durante el desarrollo del proyecto. En primer lugar, un paquete corrupto afectó la compilación adecuada, generando errores al intentar mostrar datos almacenados en formato binario. Además, experimentamos desafíos al crear elementos en XML, donde los registros se generaban incorrectamente al ser tratados como nodos padre sin las tabulaciones necesarias, lo que ocasionaba fallos en la estructura del archivo XML.
+Nos enfrentamos a diversas dificultades durante el desarrollo del proyecto. 
+En primer lugar, un paquete corrupto afectó la compilación adecuada, generando errores al intentar mostrar datos almacenados en formato binario. Además, experimentamos desafíos al crear elementos en XML, donde los registros se generaban incorrectamente al ser tratados como nodos padre sin las tabulaciones necesarias, lo que ocasionaba fallos en la estructura del archivo XML.
 
-Resolvimos los errores eliminando el archivo .jar corrupto, cuya ubicación nos llevó un tiempo identificar y el XML fue solucionado mediante ajustes en la generación apropiada de elementos XML para garantizar la integridad y funcionalidad del proyecto.
+Resolvimos los errores eliminando el archivo .jar corrupto, cuya ubicación nos llevó un tiempo identificar, y el XML fue solucionado mediante ajustes en la generación apropiada de elementos XML para garantizar la integridad y funcionalidad del proyecto.
 
 
 ## Mejoras a tener en cuenta
 
-El proyecto debe contar con un sólido control de errores para manejar datos inválidos que podrían ser introducidos por usuarios o clientes en el futuro. Por ejemplo, se debe considerar la posibilidad de que se ingrese información incorrecta en campos de fechas, como la introducción de caracteres ASCII que no corresponden a un formato de fecha válido. Este control de errores debe ser capaz de identificar y manejar eficientemente situaciones donde los datos introducidos no cumplan con los criterios establecidos, brindando mensajes claros y precisos al usuario para indicar que la información ingresada no es válida.
+- El proyecto debe contar con un sólido control de errores para manejar datos inválidos que podrían ser introducidos por usuarios o clientes en el futuro. Por ejemplo, se debe considerar la posibilidad de que se ingrese información incorrecta en campos de fechas, como la introducción de caracteres ASCII que no corresponden a un formato de fecha válido. Este control de errores debe ser capaz de identificar y manejar eficientemente situaciones donde los datos introducidos no cumplan con los criterios establecidos, brindando mensajes claros y precisos al usuario para indicar que la información ingresada no es válida.
 
+- Sería beneficioso implementar una interfaz gráfica para mejorar la experiencia del cliente. Esto permitiría una interacción más intuitiva y amigable con la aplicación, facilitando la navegación y el uso de las diferentes funcionalidades ofrecidas por el sistema de gestión de bibliotecas.
+- Sería muy ventajoso desarrollar versiones adicionales de este proyecto para dispositivos móviles (APK) y para acceso a través de una página web. Esto ampliaría significativamente la accesibilidad, permitiendo a los usuarios utilizar la aplicación desde sus dispositivos móviles o a través de un navegador web, brindando mayor flexibilidad y alcance en la gestión de la biblioteca.
