@@ -24,7 +24,7 @@ Este repositorio alberga el proyecto final de la práctica evaluable de **ACCESO
     -   Uso de ficheros de texto para registrar préstamos y devoluciones.
     -   Manejo de objetos binarios para copias de seguridad.
     -   Utilización de ficheros XML para exportar e importar datos (usando DOM).
-# Estructura del proyecto
+# 🔰Estructura del proyecto
 
 ## Clases
 
